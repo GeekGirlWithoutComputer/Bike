@@ -37,7 +37,11 @@ public class DaoFactory extends AbstractDaoFactory
 		return null;
 	}
 
-
+	@Override
+	public DAO<Car> getCarDAO() 
+	{
+		return new CarDAO(conn);
+	}
 
 
 

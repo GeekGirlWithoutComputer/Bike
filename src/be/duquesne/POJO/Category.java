@@ -51,7 +51,12 @@ private final AbstractDaoFactory dao = AbstractDaoFactory.getFactory(AbstractDao
 
 	public String getType() 
 	{
-		return this.type.toString();
+		if(this.type.equals(this.type.CYCLO))
+		{
+			return this.type.toString() + " " + " velo sur route ";
+		}
+		else 	
+		return this.type.toString()+ " " + "  velo VTT";
 	}
 	public void setType(TypesVtt type) 
 	{

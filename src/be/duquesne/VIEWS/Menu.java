@@ -105,7 +105,7 @@ public class Menu extends JFrame
 		panel.add(lblType);
 		
 		MemberMenu();
-		
+		JOptionPane.showMessageDialog(null,"dmail: "+personne.getEmail());
 	}
 	
 	public void loadMenu() 
@@ -155,7 +155,9 @@ public class Menu extends JFrame
 		{
 			public void actionPerformed(ActionEvent e) 
 			{
-				
+				AddCar page = new AddCar(personne);
+				page.setVisible(true);
+				activity.dispose();
 			}
 		});
 		btnAjouterUnVehicule.setForeground(Color.BLACK);
@@ -164,6 +166,14 @@ public class Menu extends JFrame
 		btnAjouterUnVehicule.setBounds(10, 235, 357, 44);
 		panel.add(btnAjouterUnVehicule);
 		btnChoisirUneAutre = new JButton("Choisir une autre categorie de type de balade");
+		btnChoisirUneAutre.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent e) 
+			{
+				//le membre s inscrit pr 20 euros il a une categorie fixe s il choisit une autre un update de la categorie se 
+				// fait et il paie 5e en plus 
+			}
+		});
 		btnChoisirUneAutre.setForeground(Color.BLACK);
 		btnChoisirUneAutre.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnChoisirUneAutre.setBackground(Color.RED);

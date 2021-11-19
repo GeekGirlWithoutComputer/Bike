@@ -1,28 +1,64 @@
 package be.duquesne.POJO;
 
+import java.util.List;
+
+import be.duquesne.DAO.AbstractDaoFactory;
+import be.duquesne.DAO.CarDAO;
+import be.duquesne.DAO.DAO;
+import be.duquesne.DAO.PersonDAO;
+
 public class Car 
 {
+private final AbstractDaoFactory dao = AbstractDaoFactory.getFactory(AbstractDaoFactory.DAO_FACTORY);
+	
+private final DAO<Car> cDAO =  dao.getCarDAO();
 	private int numCar;
 	private String immatriculation;
 	private int numberPlaceBike;
 	private int numberPlacePeople;
+	private Person person;
 	public Car() 
 	{
 		
 	}
 	public Car(int numCar, String immatriculation, int numberPlaceBike, int numberPlacePeople) 
 	{
-		super();
+		
 		this.numCar = numCar;
 		this.immatriculation = immatriculation;
 		this.numberPlaceBike = numberPlaceBike;
 		this.numberPlacePeople = numberPlacePeople;
+	}
+	public Car(int numCar, String immatriculation, int numberPlaceBike, int numberPlacePeople,Person p) 
+	{
+		
+		this.numCar = numCar;
+		this.immatriculation = immatriculation;
+		this.numberPlaceBike = numberPlaceBike;
+		this.numberPlacePeople = numberPlacePeople;
+		this.person=p;
+	}
+	public Car( String immatriculation, int numberPlaceBike, int numberPlacePeople,Person p) 
+	{
+		
+		
+		this.immatriculation = immatriculation;
+		this.numberPlaceBike = numberPlaceBike;
+		this.numberPlacePeople = numberPlacePeople;
+		this.person=p;
 	}
 	public Car( int numberPlaceBike, int numberPlacePeople) 
 	{
 		
 		this.numberPlaceBike = numberPlaceBike;
 		this.numberPlacePeople = numberPlacePeople;
+	}
+	
+	public Person getPerson() {
+		return person;
+	}
+	public void setPerson(Person person) {
+		this.person = person;
 	}
 	public int getNumCar() {
 		return numCar;
@@ -50,8 +86,9 @@ public class Car
 	}
 	@Override
 	public String toString() {
-		return "Car [numCar=" + numCar + ", immatriculation=" + immatriculation + ", numberPlaceBike=" + numberPlaceBike
-				+ ", numberPlacePeople=" + numberPlacePeople + "]";
+		return "nom :" +person.getFirstname() + " " + "immatr:"+ this.getImmatriculation();
+				//"Car [numCar=" + numCar + ", immatriculation=" + immatriculation + ", numberPlaceBike=" + numberPlaceBike
+				//+ ", numberPlacePeople=" + numberPlacePeople + "]";
 	}
 	
 	public int display_place_bike()
@@ -80,7 +117,7 @@ public class Car
     }
 	public boolean addCar() 
 	{
-		return true;
+		return this.cDAO.create(this);
 	}
 	
 	public boolean addPassenger() 
@@ -110,7 +147,10 @@ public class Car
 	{
 		return true;
 	}
-	
+	public List< Car> findAll()  
+	{
+		return (List<Car>) this.cDAO.findAll(this);
+	}
 	
 	
 }

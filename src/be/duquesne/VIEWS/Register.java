@@ -319,14 +319,6 @@ public class Register extends JFrame
 		Category ct = new Category();
 		ct= (Category) sp_cm.getSelectedItem();
 		
-		
-		
-		
-		//deux.setText("no de psectacle :  "+Integer.toString(s.getId()));
-		
-			
-		
-		
 		un.setText("no  : "+ct.getCodeCat());
 		deux.setText("nom : "+ ct.getType());
 		

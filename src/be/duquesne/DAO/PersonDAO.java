@@ -57,7 +57,7 @@ try {
 
 				ResultSet result = this.con_
 						.createStatement()
-						.executeQuery("SELECT * FROM PERSON WHERE EMAIL = "
+						.executeQuery("SELECT * FROM PERSON_ WHERE EMAIL = "
 								+ "'" + p.getEmail() +"'" );
 				// test de depart 
 								//+ " =  AND statut = '"+personne.getStatut()
@@ -134,7 +134,7 @@ try {
 		public List<?> findAll(Person p) 
 		{
 			List<Person> liste = new ArrayList<Person>();
-			List<Category> categories = new ArrayList<Category>();
+			
 			Statement stm = null;
 			ResultSet rs = null;
 			
@@ -173,7 +173,7 @@ try {
 			try 
 			{
 				ResultSet result = this.con_.createStatement()
-						.executeQuery("SELECT * FROM PERSON WHERE EMAIL = '" 
+						.executeQuery("SELECT * FROM PERSON_ WHERE EMAIL = '" 
 						+ p.getEmail()
 						+ "' AND statut ='" 
 						+ p.getStatut()

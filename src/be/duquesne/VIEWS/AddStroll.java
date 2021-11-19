@@ -152,7 +152,7 @@ public class AddStroll extends JFrame {
 	}
 	private boolean addStroll() 
 	{
-		Double cout=(Double) JSprix.getValue();// bsd float
+		Double cout=(Double) JSprix.getValue();
 		
 		String lieu= textFLieu.getText();
 		String nomBalade=textFName.getText();

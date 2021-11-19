@@ -19,6 +19,7 @@ public abstract class  AbstractDaoFactory
 		public abstract DAO<Category> getCategoryDAO();
 
 		public abstract DAO<Calendar> getCalendarDAO();
+		public abstract DAO<Car> getCarDAO();
 
 		
 
