@@ -74,8 +74,9 @@ public class Stroll
 		this.nameStroll = nameStroll;
 	}
 	@Override
-	public String toString() {
-		return " " +  nameStroll +  "   " + placeOfDepartune + " " + cost + "€" + " " + "le : "+this.dateOfDepartune
+	public String toString() 
+	{
+		return "Ballade :  " +  this.getNameStroll()// +  "   " + placeOfDepartune + " " + cost + "€" + " " + "le : "+this.dateOfDepartune
 				;
 	}
 	
@@ -83,13 +84,29 @@ public class Stroll
 	{
 		return this.sDAO.create(this);
 	}
+	public boolean deleteSroll() 
+	{
+		return this.sDAO.delete(this);
+	}
 	
 	public List<Stroll> findAll()
 	{
 		return (List<Stroll>) sDAO.findAll(this);
 				
 	}
+	public boolean AddParticipant() 
+	{
+		return false;
+	}
 	
+	public boolean GetPlaceMembersFree() 
+	{
+		return false;
+	}
+	public boolean GetPlaceBikeFree() 
+	{
+		return false;
+	}
 	
 	
 }

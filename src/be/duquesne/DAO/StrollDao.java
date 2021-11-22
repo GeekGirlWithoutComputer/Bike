@@ -65,14 +65,29 @@ public class StrollDao implements DAO<Stroll>
 	}
 
 	@Override
-	public boolean delete(Stroll obj) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean delete(Stroll s) 
+	{
+		try
+		{
+			PreparedStatement state = con_.prepareStatement("DELETE FROM STROLL_ WHERE numStroll = " + s.getNumStroll());		
+			state.execute();
+			return true;
+		}
+		
+		catch(SQLException e)
+		{
+			System.out.println("Catch stroll  " + e.getMessage());
+			e.printStackTrace();
+		}
+    	
+    	return false;
+		
 	}
 
 	@Override
-	public boolean update(Stroll obj) {
-		// TODO Auto-generated method stub
+	public boolean update(Stroll obj) 
+	{
+		
 		return false;
 	}
 
@@ -94,7 +109,7 @@ public class StrollDao implements DAO<Stroll>
 			try
 			{
 				 sql = "Select * From STROLL_ ";
-				//rs = stm.executeQuery(sql);
+				
 				rs=this.con_.createStatement().executeQuery(sql);
 				while(rs.next())
 				{

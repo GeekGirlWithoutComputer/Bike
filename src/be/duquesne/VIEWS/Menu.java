@@ -104,8 +104,21 @@ public class Menu extends JFrame
 		lblType.setBounds(92, 11, 563, 74);
 		panel.add(lblType);
 		
-		MemberMenu();
-		JOptionPane.showMessageDialog(null,"dmail: "+personne.getEmail());
+		JButton btnNewButton = new JButton("Voir les ballades");
+		btnNewButton.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent e) 
+			{
+				StrollList page = new StrollList();
+				page.setVisible(true);
+				activity.dispose();
+			}
+		});
+		btnNewButton.setBounds(0, 140, 272, 36);
+		panel.add(btnNewButton);
+		
+		//MemberMenu();
+		//JOptionPane.showMessageDialog(null,"dmail: "+personne.getEmail());
 	}
 	
 	public void loadMenu() 
@@ -113,14 +126,14 @@ public class Menu extends JFrame
 		switch (personne.getStatut()) 
 		{
 			case "MEMBER":
-				
+				MemberMenu();
 				break;
 			case "TREASURER":
 	
 				
 				break;
 			case "RESPONSIBLE":
-				
+				ResponsibleMenu();
 				break;
 			
 		}
@@ -150,7 +163,7 @@ public class Menu extends JFrame
 		btnAjouterDesDisponibilits.setBounds(10, 180, 357, 44);
 		panel.add(btnAjouterDesDisponibilits);
 		
-		btnAjouterUnVehicule = new JButton("Ajouter un vehicule");
+		btnAjouterUnVehicule = new JButton("Ajouter votre vehicule");
 		btnAjouterUnVehicule.addActionListener(new ActionListener() 
 		{
 			public void actionPerformed(ActionEvent e) 
@@ -180,5 +193,9 @@ public class Menu extends JFrame
 		btnChoisirUneAutre.setBounds(10, 290, 357, 44);
 		panel.add(btnChoisirUneAutre);
 	}
-
+	
+	public void ResponsibleMenu()
+	{
+		
+	}
 }

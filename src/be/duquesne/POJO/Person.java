@@ -141,12 +141,15 @@ public  class Person
 	 
 	public boolean register() 
 	{
-		
 		return false;
 	}
 	public Person find()  
 	{
 		return this.pDAO.find(this);
+	}
+	public boolean updateCategory()  
+	{
+		return this.pDAO.update(this);
 	}
 	public List< Person> findAll()  
 	{

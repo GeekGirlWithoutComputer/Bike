@@ -33,6 +33,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JTextArea;
 import be.duquesne.POJO.Person;
 import be.duquesne.POJO.Stroll;
+import javax.swing.JTextField;
 
 public class StrollList extends JFrame 
 {
@@ -112,31 +113,9 @@ public class StrollList extends JFrame
 		Spp.setBounds(10, 11, 404, 30);
 		panel_1.add(Spp);
 		
-		test = new JLabel("\" \" ");
-	       test.setForeground(new Color(245, 255, 250));
-	       test.setFont(new Font("Yu Gothic", Font.BOLD | Font.ITALIC, 12));
-	       test.setBackground(UIManager.getColor("Button.highlight"));
-	       test.setBounds(189, 157, 193, 30);
-	       panel_1.add(test);
-	       
-	        genre = new JLabel("\" \"");
-	        genre.setForeground(new Color(240, 255, 255));
-	        genre.setFont(new Font("Yu Gothic", Font.BOLD | Font.ITALIC, 12));
-	        genre.setBackground(UIManager.getColor("Button.highlight"));
-	        genre.setBounds(25, 129, 251, 14);
-	        panel_1.add(genre);
-	        
+		
 	         
-	         libel = new JLabel("\" \"");
-	         libel.setForeground(new Color(240, 255, 255));
-	         libel.setFont(new Font("Yu Gothic UI", Font.BOLD | Font.ITALIC, 12));
-	         libel.setBackground(UIManager.getColor("Button.highlight"));
-	         libel.setBounds(11, 69, 207, 25);
-	         panel_1.add(libel);
 	         
-	         txydescr = new TextArea();
-	         txydescr.setBounds(25, 162, 146, 79);
-	         panel_1.add(txydescr);
 	         
 	        JButton btnRetour = new JButton("RETOUR MENU PRINCIPAL");
 	 		btnRetour.setFont(new Font("Tw Cen MT", Font.BOLD, 15));
@@ -154,13 +133,86 @@ public class StrollList extends JFrame
 	 		});
 	 		panel_1.add(btnRetour);
 	 		
-	 		btnNewButton = new JButton("CHOISIR");
+	 		btnNewButton = new JButton("...");
+	 		btnNewButton.setFont(new Font("Yu Gothic UI", Font.BOLD | Font.ITALIC, 12));
 	 		btnNewButton.addActionListener(new ActionListener() {
-	 			public void actionPerformed(ActionEvent e) {
+	 			public void actionPerformed(ActionEvent e) 
+	 			{
+	 				
 	 			}
 	 		});
-	 		btnNewButton.setBounds(264, 205, 143, 30);
+	 		btnNewButton.setBounds(249, 221, 143, 30);
 	 		panel_1.add(btnNewButton);
+	 		
+	 		JLabel lblName = new JLabel("Nom balade: ");
+	 		lblName.setForeground(Color.WHITE);
+	 		lblName.setFont(new Font("Yu Gothic UI", Font.BOLD | Font.ITALIC, 13));
+	 		lblName.setBounds(22, 77, 117, 21);
+	 		panel_1.add(lblName);
+	 		
+	 		JLabel lblDate = new JLabel("Date :");
+	 		lblDate.setForeground(Color.WHITE);
+	 		lblDate.setFont(new Font("Yu Gothic UI", Font.BOLD | Font.ITALIC, 13));
+	 		lblDate.setBounds(22, 109, 117, 21);
+	 		panel_1.add(lblDate);
+	 		
+	 		JLabel lblLieuDeDpart = new JLabel("Lieu de d\u00E9part");
+	 		lblLieuDeDpart.setForeground(Color.WHITE);
+	 		lblLieuDeDpart.setFont(new Font("Yu Gothic UI", Font.BOLD | Font.ITALIC, 13));
+	 		lblLieuDeDpart.setBounds(22, 141, 117, 21);
+	 		panel_1.add(lblLieuDeDpart);
+	 		
+	 		JLabel lblPrix = new JLabel("Prix:");
+	 		lblPrix.setForeground(Color.WHITE);
+	 		lblPrix.setFont(new Font("Yu Gothic UI", Font.BOLD | Font.ITALIC, 13));
+	 		lblPrix.setBounds(22, 173, 117, 21);
+	 		panel_1.add(lblPrix);
+	 		
+	 		textFName = new JTextField();
+	 		textFName.setBounds(219, 78, 151, 20);
+	 		panel_1.add(textFName);
+	 		textFName.setColumns(10);
+	 		
+	 		textFDate = new JTextField();
+	 		textFDate.setColumns(10);
+	 		textFDate.setBounds(219, 110, 151, 20);
+	 		panel_1.add(textFDate);
+	 		
+	 		textFLieu = new JTextField();
+	 		textFLieu.setColumns(10);
+	 		textFLieu.setBounds(219, 142, 151, 20);
+	 		panel_1.add(textFLieu);
+	 		
+	 		textPrix = new JTextField();
+	 		textPrix.setColumns(10);
+	 		textPrix.setBounds(219, 174, 151, 20);
+	 		panel_1.add(textPrix);
+	 		
+	 		btndelete = new JButton("Supprimer");
+	 		btndelete.addActionListener(new ActionListener() 
+	 		{
+	 			public void actionPerformed(ActionEvent e) 
+	 			{
+	 				Stroll choose= (Stroll) Spp.getSelectedItem();
+	 						//createCombobox() ;
+	 				boolean oki=choose.deleteSroll();
+	 				Spp.removeItem(Spp.getSelectedItem());// ça enleve direct de la combo
+	 				if(oki) 
+	 				{
+	 					
+	 					JOptionPane.showMessageDialog(null, "Suppressionéffectuée !");
+	 					
+	 				}
+	 				else
+	 				{
+	 					JOptionPane.showMessageDialog(null, "Suppression échouée !");
+	 				}
+	 					
+	 			}
+	 		});
+	 		btndelete.setFont(new Font("Yu Gothic UI", Font.BOLD | Font.ITALIC, 12));
+	 		btndelete.setBounds(10, 221, 161, 27);
+	 		panel_1.add(btndelete);
 			
 			activity = this;
 			
@@ -172,6 +224,11 @@ public class StrollList extends JFrame
 	}
 	private List<Stroll> allS = new ArrayList<Stroll>();
 	private JButton btnNewButton;
+	private JTextField textFName;
+	private JTextField textFDate;
+	private JTextField textFLieu;
+	private JTextField textPrix;
+	private JButton btndelete;
 	public Stroll  createCombobox() 
 	{
 		Spp.addActionListener(new ActionListener() 
@@ -193,12 +250,12 @@ public class StrollList extends JFrame
 	
 	public void setId()
 	{
-	//selection de l item
+	
 		s= (Stroll) Spp.getSelectedItem();
-		libel.setText("nom de la balade  :  "+s.getNameStroll());
-		test.setText("NO : "+Integer.toString(s.getNumStroll()));
-		genre.setText("lieux de depart : "+s.getPlaceOfDepartune()); 
-		txydescr.setText("prix  : "+s.getCost());
+		textFName.setText("  "+s.getPlaceOfDepartune());
+		textFDate.setText("  "+s.getDateOfDepartune());
+		textFLieu.setText("  "+s.getNameStroll());
+		textPrix.setText("  "+s.getCost());
 		
 		
 	}
