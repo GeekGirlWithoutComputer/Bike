@@ -94,9 +94,10 @@ public class Menu extends JFrame
 		panel.add(btnRetour);
 		
 		
+		
 		JLabel lblType = new JLabel("BONJOUR  : " 
 		+" " + personne.getStatut() + "  "
-		+" " +personne.getEmail()
+		
 														
 		           );
 		lblType.setFont(new Font("Yu Gothic", Font.BOLD | Font.ITALIC, 15));
@@ -109,7 +110,7 @@ public class Menu extends JFrame
 		{
 			public void actionPerformed(ActionEvent e) 
 			{
-				StrollList page = new StrollList();
+				StrollList page = new StrollList(personne);
 				page.setVisible(true);
 				activity.dispose();
 			}
@@ -145,7 +146,7 @@ public class Menu extends JFrame
 		{
 			public void actionPerformed(ActionEvent e) 
 			{
-				StrollList frame = new StrollList();
+				StrollList frame = new StrollList(personne);
 				frame.setVisible(true);
 				activity.dispose();
 			}

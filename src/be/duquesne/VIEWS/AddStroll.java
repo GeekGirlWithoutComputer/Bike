@@ -36,6 +36,8 @@ import com.toedter.components.JSpinField;
 import be.duquesne.POJO.Category;
 import be.duquesne.POJO.Stroll;
 import be.duquesne.POJO.Category.TypesMember;
+import be.duquesne.POJO.Person;
+
 import javax.swing.JSpinner;
 
 
@@ -49,27 +51,13 @@ public class AddStroll extends JFrame {
 	private Stroll stroll;
 	private JCalendar date;
 	private   JSpinner JSprix;
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					AddStroll frame = new AddStroll();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
-	public AddStroll() 
+	private AddStroll activity;
+	private Person personne;
+	
+	public AddStroll(Person personne) 
 	{
+		this.personne=personne;
+		activity=this;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -118,7 +106,16 @@ public class AddStroll extends JFrame {
 		contentPane.add(btnOki);
 		
 		JButton btnBack = new JButton("Retour");
-		btnBack.setBounds(10, 239, 153, 23);
+		btnBack.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent e) 
+			{
+				StrollList page = new StrollList(personne);
+ 				page.setVisible(true);
+ 				activity.dispose();
+			}
+		});
+		btnBack.setBounds(12, 227, 166, 23);
 		contentPane.add(btnBack);
 		
 		date = new JCalendar();

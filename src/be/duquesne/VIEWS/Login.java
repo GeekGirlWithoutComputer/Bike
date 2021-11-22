@@ -123,13 +123,10 @@ public class Login extends JFrame
 				} 
 				else 
 				{
-					
-					
-					JOptionPane.showMessageDialog(null, password.getText());
-					JOptionPane.showMessageDialog(null, email.getText());
-					JOptionPane.showMessageDialog(null, statut);
-						
-					
+
+					//JOptionPane.showMessageDialog(null, password.getText());
+					//JOptionPane.showMessageDialog(null, email.getText());
+					//JOptionPane.showMessageDialog(null, statut);
 					JOptionPane.showMessageDialog(null, "log incorrects ");
 				}
 

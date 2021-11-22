@@ -39,28 +39,9 @@ public class StrollList extends JFrame
 {
 
 	
-	public static void main(String[] args) 
-	{
-		EventQueue.invokeLater(new Runnable() 
-		{
-			public void run() 
-			{
-				try 
-				{	
-					StrollList frame = new StrollList();
-					frame.setVisible(true);
-				}
-				catch (Exception e)
-				{
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-	
-	
 	
 	private JPanel contentPane;
+	private JPanel panel_1;
 	private DefaultListModel<String> listModelArt = new DefaultListModel<>();
 	private DefaultListModel<Stroll> listModelRep = new DefaultListModel<>();
 	private JScrollPane scrollPane;
@@ -82,9 +63,9 @@ public class StrollList extends JFrame
 	private   JLabel libel,test;
 	private TextArea txydescr;
 
-	public StrollList() 
+	public StrollList(Person p) 
 	{
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.personne=p;		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -92,7 +73,7 @@ public class StrollList extends JFrame
 		setContentPane(contentPane);
 		
 		
-		JPanel panel_1 = new JPanel() 
+		panel_1 = new JPanel() 
 		{
 			public void paintComponent(Graphics g) 
 			{
@@ -110,12 +91,19 @@ public class StrollList extends JFrame
 		
 		Spp = new JComboBox<Stroll>();
 		Spp.setBackground(Color.LIGHT_GRAY);
-		Spp.setBounds(10, 11, 404, 30);
+		Spp.setBounds(22, 0, 404, 30);
 		panel_1.add(Spp);
 		
-		
+		JLabel lblType = new JLabel("BONJOUR  : " 
+				+" " + personne.getStatut() + "  "
+				
+																
+				           );
 	         
-	         
+		lblType.setFont(new Font("Yu Gothic", Font.BOLD | Font.ITALIC, 15));
+		lblType.setForeground(Color.black);
+		lblType.setBounds(92, 11, 563, 74);
+		panel_1.add(lblType);
 	         
 	        JButton btnRetour = new JButton("RETOUR MENU PRINCIPAL");
 	 		btnRetour.setFont(new Font("Tw Cen MT", Font.BOLD, 15));
@@ -133,16 +121,7 @@ public class StrollList extends JFrame
 	 		});
 	 		panel_1.add(btnRetour);
 	 		
-	 		btnNewButton = new JButton("...");
-	 		btnNewButton.setFont(new Font("Yu Gothic UI", Font.BOLD | Font.ITALIC, 12));
-	 		btnNewButton.addActionListener(new ActionListener() {
-	 			public void actionPerformed(ActionEvent e) 
-	 			{
-	 				
-	 			}
-	 		});
-	 		btnNewButton.setBounds(249, 221, 143, 30);
-	 		panel_1.add(btnNewButton);
+	 		
 	 		
 	 		JLabel lblName = new JLabel("Nom balade: ");
 	 		lblName.setForeground(Color.WHITE);
@@ -188,38 +167,29 @@ public class StrollList extends JFrame
 	 		textPrix.setBounds(219, 174, 151, 20);
 	 		panel_1.add(textPrix);
 	 		
-	 		btndelete = new JButton("Supprimer");
-	 		btndelete.addActionListener(new ActionListener() 
+	 		
+	 		
+	 		btnRetourMenu = new JButton("quitter");
+	 		btnRetourMenu.addActionListener(new ActionListener()
 	 		{
 	 			public void actionPerformed(ActionEvent e) 
 	 			{
-	 				Stroll choose= (Stroll) Spp.getSelectedItem();
-	 						//createCombobox() ;
-	 				boolean oki=choose.deleteSroll();
-	 				Spp.removeItem(Spp.getSelectedItem());// ça enleve direct de la combo
-	 				if(oki) 
-	 				{
-	 					
-	 					JOptionPane.showMessageDialog(null, "Suppressionéffectuée !");
-	 					
-	 				}
-	 				else
-	 				{
-	 					JOptionPane.showMessageDialog(null, "Suppression échouée !");
-	 				}
-	 					
+	 				
+	 				activity.dispose();
 	 			}
 	 		});
-	 		btndelete.setFont(new Font("Yu Gothic UI", Font.BOLD | Font.ITALIC, 12));
-	 		btndelete.setBounds(10, 221, 161, 27);
-	 		panel_1.add(btndelete);
-			
+	 		btnRetourMenu.setFont(new Font("Yu Gothic UI", Font.BOLD | Font.ITALIC, 12));
+	 		btnRetourMenu.setBounds(281, 219, 143, 30);
+	 		panel_1.add(btnRetourMenu);
+	 		
+	 		
 			activity = this;
-			
+			loadStrollList() ;
 			init();
 			
 			
 			createCombobox() ;
+			
 			
 	}
 	private List<Stroll> allS = new ArrayList<Stroll>();
@@ -229,6 +199,7 @@ public class StrollList extends JFrame
 	private JTextField textFLieu;
 	private JTextField textPrix;
 	private JButton btndelete;
+	private JButton btnRetourMenu;
 	public Stroll  createCombobox() 
 	{
 		Spp.addActionListener(new ActionListener() 
@@ -263,5 +234,69 @@ public class StrollList extends JFrame
 	{
 		Stroll balade= new Stroll();
 		allS = balade.findAll();
+	}
+	public void member() 
+	{
+	}
+	public void responsible()
+	{
+		btndelete = new JButton("Supprimer");
+ 		btndelete.addActionListener(new ActionListener() 
+ 		{
+ 			public void actionPerformed(ActionEvent e) 
+ 			{
+ 				Stroll choose= (Stroll) Spp.getSelectedItem();
+ 						//createCombobox() ;
+ 				boolean oki=choose.deleteSroll();
+ 				Spp.removeItem(Spp.getSelectedItem());// ça enleve direct de la combo
+ 				if(oki) 
+ 				{
+ 					
+ 					JOptionPane.showMessageDialog(null, "Suppressionéffectuée !");
+ 					
+ 				}
+ 				else
+ 				{
+ 					JOptionPane.showMessageDialog(null, "Suppression échouée !");
+ 				}
+ 					
+ 			}
+ 		});
+ 		btndelete.setFont(new Font("Yu Gothic UI", Font.BOLD | Font.ITALIC, 12));
+ 		btndelete.setBounds(0, 219, 143, 30);
+ 		panel_1.add(btndelete);
+ 		
+ 		btnNewButton = new JButton("Ajouter un balade");
+ 		btnNewButton.setFont(new Font("Yu Gothic UI", Font.BOLD | Font.ITALIC, 12));
+ 		btnNewButton.addActionListener(new ActionListener() 
+ 		{
+ 			public void actionPerformed(ActionEvent e) 
+ 			{
+ 				
+ 				AddStroll page = new AddStroll(personne);
+ 				page.setVisible(true);
+ 				activity.dispose();
+ 			}
+ 		});
+ 		btnNewButton.setBounds(141, 219, 143, 30);
+ 		panel_1.add(btnNewButton);
+	}
+	public void loadStrollList() 
+	{
+		switch (personne.getStatut()) 
+		{
+			case "MEMBER":
+				member();
+				break;
+				
+			case "TREASURER":
+	
+				
+				break;
+			case "RESPONSIBLE":
+				responsible();
+				break;
+			
+		}
 	}
 }
