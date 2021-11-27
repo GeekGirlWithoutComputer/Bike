@@ -92,7 +92,7 @@ public class CategoryDAO implements DAO<Category>
 
 			ResultSet rs = this.con_
 					.createStatement()
-					.executeQuery("SELECT numcategory FROM Category_ WHERE name = '" + c.getName() +"'" );
+					.executeQuery("SELECT numcategory FROM Category_ WHERE catname = '" + c.getName() +"'" );
 			
 			if(rs.next()) 
 			{

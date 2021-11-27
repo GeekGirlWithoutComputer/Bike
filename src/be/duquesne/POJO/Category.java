@@ -8,8 +8,7 @@ import be.duquesne.DAO.PersonDAO;
 
 public  class Category 
 {
-private final AbstractDaoFactory dao = AbstractDaoFactory.getFactory(AbstractDaoFactory.DAO_FACTORY);
-	
+	private final AbstractDaoFactory dao = AbstractDaoFactory.getFactory(AbstractDaoFactory.DAO_FACTORY);
 	protected final CategoryDAO cDAO=(CategoryDAO) dao.getCategoryDAO();
 	public enum TypesMember
 	{
@@ -70,18 +69,22 @@ private final AbstractDaoFactory dao = AbstractDaoFactory.getFactory(AbstractDao
 	{
 		this.typeVelo = typeVelo;
 	}
-	public int getCodeCat() {
+	public int getCodeCat() 
+	{
 		return codeCat;
 	}
-	public void setCodeCat(int codeCat) {
+	public void setCodeCat(int codeCat) 
+	{
 		this.codeCat = codeCat;
 	}
 	
-	public String getName() {
+	public String getName() 
+	{
 		return name;
 	}
 
-	public void setName(String name) {
+	public void setName(String name) 
+	{
 		this.name = name;
 	}
 
@@ -102,7 +105,6 @@ private final AbstractDaoFactory dao = AbstractDaoFactory.getFactory(AbstractDao
 	public String toString()
 	{
 		return "  " +this.type;
-				//"  " +  "[" + codeCat + "] " +"  "+this.type;//**no name 
 	}
 	
 	

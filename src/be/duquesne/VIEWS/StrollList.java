@@ -53,7 +53,7 @@ public class StrollList extends JFrame
 	
 	
 	
-	private Stroll s = new Stroll();
+	private Stroll str = new Stroll();
 	private Person personne;
 	
 	
@@ -87,23 +87,14 @@ public class StrollList extends JFrame
 		panel_1.setBounds(0, 0, 664, 562);
 		contentPane.add(panel_1);
 		panel_1.setLayout(null);
-		
+
 		
 		Spp = new JComboBox<Stroll>();
 		Spp.setBackground(Color.LIGHT_GRAY);
 		Spp.setBounds(22, 0, 404, 30);
 		panel_1.add(Spp);
 		
-		JLabel lblType = new JLabel("BONJOUR  : " 
-				+" " + personne.getStatut() + "  "
-				
-																
-				           );
-	         
-		lblType.setFont(new Font("Yu Gothic", Font.BOLD | Font.ITALIC, 15));
-		lblType.setForeground(Color.black);
-		lblType.setBounds(92, 11, 563, 74);
-		panel_1.add(lblType);
+		
 	         
 	        JButton btnRetour = new JButton("RETOUR MENU PRINCIPAL");
 	 		btnRetour.setFont(new Font("Tw Cen MT", Font.BOLD, 15));
@@ -181,13 +172,11 @@ public class StrollList extends JFrame
 	 		btnRetourMenu.setFont(new Font("Yu Gothic UI", Font.BOLD | Font.ITALIC, 12));
 	 		btnRetourMenu.setBounds(281, 219, 143, 30);
 	 		panel_1.add(btnRetourMenu);
-	 		
+	 	
 	 		
 			activity = this;
 			loadStrollList() ;
 			init();
-			
-			
 			createCombobox() ;
 			
 			
@@ -200,6 +189,7 @@ public class StrollList extends JFrame
 	private JTextField textPrix;
 	private JButton btndelete;
 	private JButton btnRetourMenu;
+	private JButton btnChoisir;
 	public Stroll  createCombobox() 
 	{
 		Spp.addActionListener(new ActionListener() 
@@ -216,27 +206,41 @@ public class StrollList extends JFrame
 			
 		};		
 	
-		return s =(Stroll) Spp.getSelectedItem();
+		return str =(Stroll) Spp.getSelectedItem();
 	}
 	
 	public void setId()
 	{
 	
-		s= (Stroll) Spp.getSelectedItem();
-		textFName.setText("  "+s.getPlaceOfDepartune());
-		textFDate.setText("  "+s.getDateOfDepartune());
-		textFLieu.setText("  "+s.getNameStroll());
-		textPrix.setText("  "+s.getCost());
+		str= (Stroll) Spp.getSelectedItem();
+		textFName.setText("  "+str.getPlaceOfDepartune());
+		textFDate.setText("  "+str.getDateOfDepartune());
+		textFLieu.setText("  "+str.getNameStroll());
+		textPrix.setText("  "+str.getCost() +"  €");
 		
 		
 	}
 	public void init() 
 	{
-		Stroll balade= new Stroll();
-		allS = balade.findAll();
+		str= new Stroll();
+		allS = str.findAll();
 	}
 	public void member() 
 	{
+
+ 		btnChoisir = new JButton("Choisir");
+ 		btnChoisir.addActionListener(new ActionListener() 
+ 		{
+ 			public void actionPerformed(ActionEvent e) 
+ 			{
+ 				StrollRegistration page = new StrollRegistration (createCombobox(),personne);
+				page.setVisible(true);
+				activity.dispose();
+ 			}
+ 		});
+ 		btnChoisir.setFont(new Font("Yu Gothic UI", Font.BOLD | Font.ITALIC, 12));
+ 		btnChoisir.setBounds(20, 219, 143, 30);
+ 		panel_1.add(btnChoisir);
 	}
 	public void responsible()
 	{
@@ -252,7 +256,7 @@ public class StrollList extends JFrame
  				if(oki) 
  				{
  					
- 					JOptionPane.showMessageDialog(null, "Suppressionéffectuée !");
+ 					JOptionPane.showMessageDialog(null, "Suppression éffectuée !");
  					
  				}
  				else

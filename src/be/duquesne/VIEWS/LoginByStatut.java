@@ -50,7 +50,7 @@ public class LoginByStatut extends JFrame
 			{
 				Image img = Toolkit.getDefaultToolkit()
 						.getImage(MainActivity.class
-								.getResource("/be/condorcet/duquesne/IMG/t.jpg")
+								.getResource("/be/duquesne/IMG/cx.jpg")
 								);
 				g.drawImage(img, 0, 0, this.getWidth(), this.getHeight(), this);
 			}
@@ -71,7 +71,7 @@ public class LoginByStatut extends JFrame
 		 * 
 		 * pour se connecter il faudra choisir son statut 
 		 * si la personne se trompe mais quelle rentre qd meme des infos presentes ds la db ca ne marchera pas 
-		 * car on verif sur le speud, le mdp et le statut 
+		 * car on verif sur le mail, le mdp et le statut 
 		 * 
 		 * 
 		 * 
@@ -150,7 +150,7 @@ public class LoginByStatut extends JFrame
 				activity.dispose();
 			}
 		});
-		btnResponsible.setForeground(Color.BLACK);
+		btnResponsible.setForeground(UIManager.getColor("CheckBox.focus"));
 		btnResponsible.setFont(new Font("Yu Gothic UI", Font.BOLD | Font.ITALIC, 15));
 		btnResponsible.setBackground(Color.DARK_GRAY);
 		btnResponsible.setBounds(273, 168, 147, 65);

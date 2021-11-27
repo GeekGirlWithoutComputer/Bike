@@ -50,7 +50,7 @@ public class Register extends JFrame
 	private TypesMember p;
 	ButtonGroup bG = new ButtonGroup();
 	private String choose;
-	private Member m;
+	private Person memb;
 	private Category cat ;
 	private JLabel lblNewLabel_2;
 	private JLabel lblNewLabel_3;
@@ -83,7 +83,7 @@ public class Register extends JFrame
 		List();
 		this.cat= new Category();
 		
-		 activity=this;
+		activity=this;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 652, 443);
 		contentPane = new JPanel();
@@ -186,26 +186,15 @@ public class Register extends JFrame
 	    lblAdresse.setBounds(257, 136, 349, 22);
 	    panel_1.add(lblAdresse);
 	    
-	  
-		
-		
-		
-		
 	    createCombobox();
 	    createChoise() ;
-		
-		
-		
+	
 	}
-	
-	
 	
 	
 	
 	private void createChoise() 
 	{
-		 
-		
 		 
 		 JButton btnNewButton_1 = new JButton("enregistrer votre vehicule");
 		 btnNewButton_1.setBounds(66, 487, 299, 23);
@@ -218,11 +207,8 @@ public class Register extends JFrame
 		 	{
 		 		/*on suppose qu il n y a que des membres qui s inscrivent , le tresorier a ses logs differemment vu sa position */
 		 		String statut = "MEMBER";
-		 		
-		 		Person membre;
-		 		
 		 		int id=cat.findId();
-		 		membre= new Member 
+		 		memb= new Member 
 		 				(name.getText(),
 		 		firstname.getText(),
 		 		telephon.getText(),
@@ -230,25 +216,23 @@ public class Register extends JFrame
 		 		email.getText(),
 		 				 		statut, adress.getText(),
 		 				 		createCombobox() );
-		 				 		//place);
-		 		Person oki = membre.find();
+		 				 		
+		 		Person oki = memb.find();
 		 		
 		 		if(oki == null) 
 				{
-					Boolean oki2=membre.register();
+					Boolean oki2=memb.register();
 							
-					
-					//JOptionPane.showMessageDialog(null, "register  ??:"+oki2);
+					/*JOptionPane.showMessageDialog(null, "register  ??:"+oki2);
 					JOptionPane.showMessageDialog(null, "find id  ??:"+id);
 					JOptionPane.showMessageDialog(null, "cat   ??:"+cat );
-					JOptionPane.showMessageDialog(null, "combo box   ??:"+ createCombobox()  );
+					JOptionPane.showMessageDialog(null, "combo box   ??:"+ createCombobox()  );*/
 					
 					if(oki2) 
 					{
-						JOptionPane.showMessageDialog(null, "Compte crée avec succes !");
+						JOptionPane.showMessageDialog(null, "Compte crée avec succes !Retour au menu   ");
 
-						Registery page = new Registery();
-						
+						LoginByStatut page = new LoginByStatut();
 						page.setVisible(true);
 						activity.dispose();
 					}
@@ -263,37 +247,17 @@ public class Register extends JFrame
 					JOptionPane.showMessageDialog(null, "Utilisateur  deja existant.");
 				}
 				
-		 		
-		 		
 		 	}
 		 });
 		 btnRegis.setBounds(330, 361, 149, 33);
 		 panel_1.add(btnRegis);
-		
-		
-		 
-	
-	}
 	
 	
-
-	
-	
-	
-	public TypesMember setId3() 
-	{
-		Category ct = new Category();
-		
-		un.setText("no  : "+ct.getCodeCat());
-		deux.setText("nom : "+ ct.getType());
-		return p= (TypesMember) comboBox.getSelectedItem();
-
 	}
 	
 	public Category createCombobox() 
 	{
-		Category ct = new Category();
-		ct.findAll();
+		cat.findAll();
 		sp_cm.addActionListener(new ActionListener() 
 		{
 			public void actionPerformed(ActionEvent arg0) 
@@ -303,43 +267,34 @@ public class Register extends JFrame
 		});
 		//JOptionPane.showMessageDialog(null, "taille radio ."+ size.toString());
 		
-		for (Category  sp:
-			allC) 
+		for (Category  sp:allC) 
+			
 		{
 			sp_cm.addItem(sp);
-		}		
-		// JOptionPane.showMessageDialog( null,"item id ."+currentSpectacle); // test
+		};		
 		
-		;
-	
-		return ct =(Category) sp_cm.getSelectedItem();
+		return cat =(Category) sp_cm.getSelectedItem();
 	}
 	public void setId()
 	{
-		Category ct = new Category();
-		ct= (Category) sp_cm.getSelectedItem();
+		cat = new Category();
+		cat= (Category) sp_cm.getSelectedItem();
 		
-		un.setText("no  : "+ct.getCodeCat());
-		deux.setText("nom : "+ ct.getType());
-		
-		
-		
-		
-		
-		
-		
+		un.setText("no  : "+cat.getCodeCat());
+		deux.setText("nom : "+ cat.getType());
+
 	}	
 	
 	public void List_() 
 	{
 		
-		Person pt = new Person();
-		all = pt.findAll();
+		memb = new Person();
+		all = memb.findAll();
 	}
 	public void List() 
 	{
-		Category ct = new Category();
-		allC = ct.findAll();
+		cat = new Category();
+		allC = cat.findAll();
 	}
 }
 

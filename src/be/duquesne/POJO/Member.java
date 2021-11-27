@@ -19,6 +19,7 @@ public class Member extends Person
 	private TypesVtt type;
 	private TypesMember typevelo;
 	private Car theCar;
+	private Double balance;
 	
 	
 
@@ -102,8 +103,27 @@ public class Member extends Person
 	{
 		this.categoryList = categoryList;
 	}
-
 	
+	
+	public Double getBalance() 
+	{
+		return balance;
+	}
+
+
+	public void setBalance(Double balance) 
+	{
+		this.balance = balance;
+	}
+
+	public void balance()
+	{
+		
+	}
+	public void checkBalance()
+	{
+		
+	}
 	@Override
 	public boolean register() 
 	{

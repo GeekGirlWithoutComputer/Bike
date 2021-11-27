@@ -37,6 +37,7 @@ import javax.swing.JComboBox;
 import be.duquesne.POJO.Person;
 
 import javax.swing.JButton;
+import javax.swing.UIManager;
 
 public class Menu extends JFrame 
 {
@@ -49,6 +50,9 @@ public class Menu extends JFrame
 	private JButton btnAjouterUnVehicule;
 	private JButton btnChoisirUneAutre;
 	private Menu activity;
+	private JButton btnNewButton;
+	private JButton btnVerifierPaiementDu;
+	private JButton btnVerifierPaiementDu_1;
 	
 	
 	public Menu(Person personne)  
@@ -73,7 +77,7 @@ public class Menu extends JFrame
 						g.drawImage(img, 0, 0, this.getWidth(), this.getHeight(), this);
 			}
 		};
-		panel.setBounds(20, 0, 662, 392);
+		panel.setBounds(20, -11, 662, 392);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
@@ -96,30 +100,17 @@ public class Menu extends JFrame
 		
 		
 		JLabel lblType = new JLabel("BONJOUR  : " 
-		+" " + personne.getStatut() + "  "
+		+" " + personne.getStatut() + "  " +  personne.getAdress() 
 		
 														
 		           );
 		lblType.setFont(new Font("Yu Gothic", Font.BOLD | Font.ITALIC, 15));
 		lblType.setForeground(Color.WHITE);
-		lblType.setBounds(92, 11, 563, 74);
+		lblType.setBounds(31, 47, 563, 74);
 		panel.add(lblType);
 		
-		JButton btnNewButton = new JButton("Voir les ballades");
-		btnNewButton.addActionListener(new ActionListener() 
-		{
-			public void actionPerformed(ActionEvent e) 
-			{
-				StrollList page = new StrollList(personne);
-				page.setVisible(true);
-				activity.dispose();
-			}
-		});
-		btnNewButton.setBounds(0, 140, 272, 36);
-		panel.add(btnNewButton);
+		loadMenu() ;
 		
-		//MemberMenu();
-		//JOptionPane.showMessageDialog(null,"dmail: "+personne.getEmail());
 	}
 	
 	public void loadMenu() 
@@ -127,19 +118,19 @@ public class Menu extends JFrame
 		switch (personne.getStatut()) 
 		{
 			case "MEMBER":
-				MemberMenu();
+				memberMenu();
 				break;
 			case "TREASURER":
-	
+				treasurerMenu();
 				
 				break;
 			case "RESPONSIBLE":
-				ResponsibleMenu();
+				responsibleMenu();
 				break;
 			
 		}
 	}
-	public void MemberMenu()
+	public void memberMenu()
 	{
 		btnReserverUneBalade = new JButton("Reserver une balade");
 		btnReserverUneBalade.addActionListener(new ActionListener() 
@@ -195,8 +186,28 @@ public class Menu extends JFrame
 		panel.add(btnChoisirUneAutre);
 	}
 	
-	public void ResponsibleMenu()
+	public void responsibleMenu()
 	{
 		
+	}
+	public void treasurerMenu()
+	{
+		btnNewButton = new JButton("Verifier paiement cotisation");
+		btnNewButton.setForeground(UIManager.getColor("CheckBox.focus"));
+		btnNewButton.setFont(new Font("Yu Gothic UI", Font.BOLD | Font.ITALIC, 15));
+		btnNewButton.setBounds(41, 132, 287, 36);
+		panel.add(btnNewButton);
+		
+		btnVerifierPaiementDu = new JButton("Verifier paiement du covoiturage");
+		btnVerifierPaiementDu.setForeground(Color.BLACK);
+		btnVerifierPaiementDu.setFont(new Font("Yu Gothic UI", Font.BOLD | Font.ITALIC, 15));
+		btnVerifierPaiementDu.setBounds(41, 190, 287, 36);
+		panel.add(btnVerifierPaiementDu);
+		
+		btnVerifierPaiementDu_1 = new JButton("Verifier paiement du covoiturage");
+		btnVerifierPaiementDu_1.setForeground(Color.BLACK);
+		btnVerifierPaiementDu_1.setFont(new Font("Yu Gothic UI", Font.BOLD | Font.ITALIC, 15));
+		btnVerifierPaiementDu_1.setBounds(41, 236, 287, 36);
+		panel.add(btnVerifierPaiementDu_1);
 	}
 }

@@ -76,7 +76,7 @@ public class Stroll
 	@Override
 	public String toString() 
 	{
-		return "Ballade :  " +  this.getNameStroll()// +  "   " + placeOfDepartune + " " + cost + "€" + " " + "le : "+this.dateOfDepartune
+		return "Ballade :  " +  this.getPlaceOfDepartune()
 				;
 	}
 	
