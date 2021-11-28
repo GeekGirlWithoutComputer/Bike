@@ -51,7 +51,7 @@ public class AddStroll extends JFrame {
 	private JTextField textFDate;
 	private Stroll stroll;
 	private JCalendar date;
-	private   JSpinner JSprix;
+	private JSpinner JSprix;
 	private AddStroll activity;
 	private Person personne;
 	
@@ -163,7 +163,7 @@ public class AddStroll extends JFrame {
 		textFDate.setText("aujourd'hui "+date.getDate().toString());
 		
 		JSprix = new JSpinner();
-		JSprix .setModel(new SpinnerNumberModel(new Double(0), null, null, new Double(1)));//** prob flot
+		JSprix .setModel(new SpinnerNumberModel(new Double(0), null, null, new Double(1)));
 		JSprix.setBounds(255, 76, 82, 20);
 		panel.add(JSprix);
 	}

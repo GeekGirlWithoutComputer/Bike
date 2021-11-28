@@ -111,8 +111,6 @@ public class Menu extends JFrame
 		lblType.setBounds(31, 47, 563, 74);
 		panel.add(lblType);
 		
-		responsibleMenu();
-		
 		loadMenu() ;
 		
 	}
@@ -210,6 +208,13 @@ public class Menu extends JFrame
 		panel.add(btnNewButton_1);
 		
 		btnNewButton_2 = new JButton("Calculer forfait covoiturage");
+		btnNewButton_2.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent e) 
+			{
+				
+			}
+		});
 		btnNewButton_2.setFont(new Font("Yu Gothic", Font.BOLD, 13));
 		btnNewButton_2.setBounds(31, 224, 231, 38);
 		panel.add(btnNewButton_2);

@@ -76,7 +76,8 @@ public class Register extends JFrame
 	private JLabel lblTelephone;
 	private JTextField textField_8;
 	private JLabel lblAdresse;
-
+	private JButton btnPayerCotisation;
+	
 	
 	public Register()
 	{
@@ -185,22 +186,24 @@ public class Register extends JFrame
 	    lblAdresse.setHorizontalAlignment(SwingConstants.CENTER);
 	    lblAdresse.setBounds(257, 136, 349, 22);
 	    panel_1.add(lblAdresse);
-	    
+	   
 	    createCombobox();
 	    createChoise() ;
 	
 	}
 	
-	
+	private void pay() 
+	{
+			Payement page = new Payement();
+			page.setVisible(true);
+			activity.dispose();
+	}
 	
 	private void createChoise() 
 	{
-		 
-		 JButton btnNewButton_1 = new JButton("enregistrer votre vehicule");
-		 btnNewButton_1.setBounds(66, 487, 299, 23);
-		 panel_1.add(btnNewButton_1);
-		 
+		
 		 JButton btnRegis = new JButton("Valider");
+		 btnRegis.setFont(new Font("Yu Gothic", Font.BOLD, 13));
 		 btnRegis.addActionListener(new ActionListener() 
 		 {
 		 	public void actionPerformed(ActionEvent e) 
@@ -209,14 +212,13 @@ public class Register extends JFrame
 		 		String statut = "MEMBER";
 		 		int id=cat.findId();
 		 		memb= new Member 
-		 				(name.getText(),
+		 		(name.getText(),
 		 		firstname.getText(),
 		 		telephon.getText(),
 		 		password.getText(),
 		 		email.getText(),
-		 				 		statut, adress.getText(),
-		 				 		createCombobox() );
-		 				 		
+		 		statut, adress.getText(),
+		 		createCombobox());	 		
 		 		Person oki = memb.find();
 		 		
 		 		if(oki == null) 
@@ -231,7 +233,6 @@ public class Register extends JFrame
 					if(oki2) 
 					{
 						JOptionPane.showMessageDialog(null, "Compte crée avec succes !Retour au menu   ");
-
 						LoginByStatut page = new LoginByStatut();
 						page.setVisible(true);
 						activity.dispose();
@@ -251,6 +252,18 @@ public class Register extends JFrame
 		 });
 		 btnRegis.setBounds(330, 361, 149, 33);
 		 panel_1.add(btnRegis);
+		 
+		 btnPayerCotisation = new JButton("Payer cotisation");
+		 btnPayerCotisation.addActionListener(new ActionListener() 
+		 {
+		 	public void actionPerformed(ActionEvent e) 
+		 	{
+		 		pay();
+		 	}
+		 });
+		 btnPayerCotisation.setFont(new Font("Yu Gothic", Font.BOLD, 13));
+		 btnPayerCotisation.setBounds(18, 361, 189, 33);
+		 panel_1.add(btnPayerCotisation);
 	
 	
 	}
@@ -279,7 +292,6 @@ public class Register extends JFrame
 	{
 		cat = new Category();
 		cat= (Category) sp_cm.getSelectedItem();
-		
 		un.setText("no  : "+cat.getCodeCat());
 		deux.setText("nom : "+ cat.getType());
 
