@@ -77,7 +77,7 @@ public class LoginByStatut extends JFrame
 		 * 
 		 * **********************************************************************************************************/
 		
-		JButton btnMember = new JButton("MEMBER");
+		JButton btnMember = new JButton("MEMBRE");
 		btnMember.setForeground(UIManager.getColor("CheckBox.focus"));
 		btnMember.setFont(new Font("Yu Gothic UI", Font.BOLD | Font.ITALIC, 15));
 		btnMember.setBackground(Color.DARK_GRAY);
@@ -124,7 +124,7 @@ public class LoginByStatut extends JFrame
 		lblNewLabel.setBounds(31, 17, 598, 72);
 		panel_1.add(lblNewLabel);
 		
-		JButton btnTreasurer = new JButton("TREASURER");
+		JButton btnTreasurer = new JButton("TRESORIER");
 		btnTreasurer.addActionListener(new ActionListener() 
 		{
 			public void actionPerformed(ActionEvent e) 
@@ -140,7 +140,7 @@ public class LoginByStatut extends JFrame
 		btnTreasurer.setBounds(462, 168, 147, 65);
 		panel_1.add(btnTreasurer);
 		
-		JButton btnResponsible = new JButton("RESPONSIBLE");
+		JButton btnResponsible = new JButton("RESPONSABLE");
 		btnResponsible.addActionListener(new ActionListener() 
 		{
 			public void actionPerformed(ActionEvent e) 

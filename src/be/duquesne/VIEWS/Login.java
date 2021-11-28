@@ -79,7 +79,7 @@ public class Login extends JFrame
 		lblNewLabel.setBounds(178, 77, 139, 13);
 		panel.add(lblNewLabel);
 
-		JLabel lblMotDePasse = new JLabel("PASSWORD");
+		JLabel lblMotDePasse = new JLabel("MOT DE PASSE");
 		lblMotDePasse.setForeground(new Color(255, 255, 0));
 		lblMotDePasse.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblMotDePasse.setBounds(178, 145, 139, 13);
