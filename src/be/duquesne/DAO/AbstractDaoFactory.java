@@ -15,7 +15,7 @@ public abstract class  AbstractDaoFactory
 		public abstract PersonDAO getPersonneDAO();
 
 		public abstract DAO<Stroll> getStrollDAO();
-
+		public abstract DAO<Bike> getBikeDAO();
 		public abstract DAO<Category> getCategoryDAO();
 
 		public abstract DAO<Calendar> getCalendarDAO();

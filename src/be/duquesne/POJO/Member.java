@@ -21,7 +21,10 @@ public class Member extends Person
 	private Car theCar;
 	private Double balance;
 	
-	
+	public Member()
+	{
+		
+	}
 
 	public Member(int numPerson, String name, String firstname, String telephon, String password, String email) {
 		super(numPerson, name, firstname, telephon, password, email);
@@ -81,7 +84,8 @@ public class Member extends Person
 		else
 			return "TRIALIST";
 	}
-	public void setType(TypesVtt type) {
+	public void setType(TypesVtt type) 
+	{
 		
 	}
 	

@@ -24,40 +24,37 @@ public class CategoryDAO implements DAO<Category>
 	}
 
 	@Override
-	public boolean create(Category obj) {
-		// TODO Auto-generated method stub
+	public boolean create(Category obj) 
+	{
 		return false;
 	}
 
-	@Override
-	public boolean create(Category obj, int id) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	
 
 	@Override
-	public int findByLast(Category s) {
-		// TODO Auto-generated method stub
+	public int findByLast(Category s) 
+	{
 		return 0;
 	}
 
 	@Override
-	public boolean delete(Category obj) {
-		// TODO Auto-generated method stub
+	public boolean delete(Category obj) 
+	{
 		return false;
 	}
 
 	@Override
-	public boolean update(Category obj) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean update(Category ct) 
+	{
+		
+		          
+		return true;
 	}
 
 	@Override
 	public Category find(Category c) 
 	{
-		//select name from category_ where name= 'VTT'
-		//select numcategory from category_ where name= 'VTT'
+		
 		try
 		{
 

@@ -143,6 +143,7 @@ public  class Person
 	{
 		return false;
 	}
+	
 	public Person find()  
 	{
 		return this.pDAO.find(this);

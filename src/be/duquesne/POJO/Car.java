@@ -9,9 +9,8 @@ import be.duquesne.DAO.PersonDAO;
 
 public class Car 
 {
-private final AbstractDaoFactory dao = AbstractDaoFactory.getFactory(AbstractDaoFactory.DAO_FACTORY);
-	
-private final DAO<Car> cDAO =  dao.getCarDAO();
+	private final AbstractDaoFactory dao = AbstractDaoFactory.getFactory(AbstractDaoFactory.DAO_FACTORY);	
+	private final DAO<Car> cDAO =  dao.getCarDAO();
 	private int numCar;
 	private String immatriculation;
 	private int numberPlaceBike;
@@ -85,8 +84,9 @@ private final DAO<Car> cDAO =  dao.getCarDAO();
 		this.numberPlacePeople = numberPlacePeople;
 	}
 	@Override
-	public String toString() {
-		return "nom :" +person.getFirstname() + " " + "immatr:"+ this.getImmatriculation();
+	public String toString() 
+	{
+		return "nom :" +person.getAdress() + " " + "immatr:"+ this.getImmatriculation();
 				//"Car [numCar=" + numCar + ", immatriculation=" + immatriculation + ", numberPlaceBike=" + numberPlaceBike
 				//+ ", numberPlacePeople=" + numberPlacePeople + "]";
 	}
@@ -138,9 +138,10 @@ private final DAO<Car> cDAO =  dao.getCarDAO();
 		return true;
 	}
 	
-	public void calculPlace()
+	public int calculPlace()
 	{
 		int nbre=0;
+		return  nbre=0;
 	}
 	
 	public boolean placeUpadate()

@@ -108,7 +108,7 @@ public class Menu extends JFrame
 		lblType.setForeground(Color.WHITE);
 		lblType.setBounds(31, 47, 563, 74);
 		panel.add(lblType);
-		
+		memberMenu();
 		loadMenu() ;
 		
 	}
@@ -175,6 +175,9 @@ public class Menu extends JFrame
 		{
 			public void actionPerformed(ActionEvent e) 
 			{
+				CategoryList page = new CategoryList(personne);
+				page.setVisible(true);
+				activity.dispose();
 				//le membre s inscrit pr 20 euros il a une categorie fixe s il choisit une autre un update de la categorie se 
 				// fait et il paie 5e en plus 
 			}

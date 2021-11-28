@@ -52,15 +52,12 @@ public class StrollDao implements DAO<Stroll>
 		return true;
 	}
 
-	@Override
-	public boolean create(Stroll obj, int id) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	
 
 	@Override
-	public int findByLast(Stroll s) {
-		// TODO Auto-generated method stub
+	public int findByLast(Stroll s) 
+	{
+
 		return 0;
 	}
 

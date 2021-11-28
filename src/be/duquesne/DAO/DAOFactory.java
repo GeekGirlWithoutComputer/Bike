@@ -2,6 +2,7 @@ package be.duquesne.DAO;
 
 import java.sql.Connection;
 
+import be.duquesne.POJO.Bike;
 import be.duquesne.POJO.Calendar;
 import be.duquesne.POJO.Car;
 import be.duquesne.POJO.Category;
@@ -20,7 +21,11 @@ public class DaoFactory extends AbstractDaoFactory
 	}
 	
 
-
+	@Override
+	public DAO<Bike> getBikeDAO() 
+	{
+		return new BikeDAO(conn);
+	}
 	
 
 	@Override

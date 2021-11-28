@@ -10,11 +10,13 @@ import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import be.duquesne.POJO.Category;
+import be.duquesne.POJO.Person;
 
 public class CategoryList extends JFrame 
 {
@@ -33,32 +35,12 @@ public class CategoryList extends JFrame
 	private JTextField spp;
 	private CategoryList activity;
 	private JButton btnNewButton;
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) 
-	{
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					CategoryList frame = new CategoryList();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
-	public CategoryList() 
+	private Person personne;
+	public CategoryList(Person p) 
 	{
 		activity=this;
-		
+		this.personne=p;
 		List();
-		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -86,7 +68,19 @@ public class CategoryList extends JFrame
 		 {
 		 	public void actionPerformed(ActionEvent e) 
 		 	{
-		 		
+		 		Boolean oki=p.updateCategory();
+		 	
+		 		if(oki)
+				{
+					JOptionPane.showMessageDialog(null, "catégorie mise à jour  ");
+					
+				}
+				else 
+				{
+					JOptionPane.showMessageDialog(null, "catégorie inchangée ");
+					
+				}
+				activity.dispose();
 		 	}
 		 });
 		 btnNewButton.setBounds(185, 227, 182, 23);
@@ -111,8 +105,7 @@ public class CategoryList extends JFrame
 			}
 		});
 		
-		for (Category  sp:
-			all) 
+		for (Category  sp:all) 
 		{
 			sp_cm.addItem(sp);
 		};

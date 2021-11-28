@@ -165,7 +165,6 @@ public class StrollList extends JFrame
 	 		{
 	 			public void actionPerformed(ActionEvent e) 
 	 			{
-	 				
 	 				activity.dispose();
 	 			}
 	 		});
@@ -205,7 +204,6 @@ public class StrollList extends JFrame
 			Spp.addItem(sp);
 			
 		};		
-	
 		return str =(Stroll) Spp.getSelectedItem();
 	}
 	
@@ -255,7 +253,6 @@ public class StrollList extends JFrame
  				Spp.removeItem(Spp.getSelectedItem());// ça enleve direct de la combo
  				if(oki) 
  				{
- 					
  					JOptionPane.showMessageDialog(null, "Suppression éffectuée !");
  					
  				}
