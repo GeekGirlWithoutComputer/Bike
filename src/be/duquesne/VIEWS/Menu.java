@@ -53,6 +53,8 @@ public class Menu extends JFrame
 	private JButton btnNewButton;
 	private JButton btnVerifierPaiementDu;
 	private JButton btnVerifierPaiementDu_1;
+	private JButton btnNewButton_1;
+	private JButton btnNewButton_2;
 	
 	
 	public Menu(Person personne)  
@@ -108,7 +110,9 @@ public class Menu extends JFrame
 		lblType.setForeground(Color.WHITE);
 		lblType.setBounds(31, 47, 563, 74);
 		panel.add(lblType);
-		memberMenu();
+		
+		responsibleMenu();
+		
 		loadMenu() ;
 		
 	}
@@ -191,7 +195,24 @@ public class Menu extends JFrame
 	
 	public void responsibleMenu()
 	{
+		btnNewButton_1 = new JButton("Afficher les balades");
+		btnNewButton_1.setFont(new Font("Yu Gothic UI", Font.BOLD, 14));
+		btnNewButton_1.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent e) 
+			{
+				StrollList page = new StrollList (personne);
+				page.setVisible(true);
+				activity.dispose();
+			}
+		});
+		btnNewButton_1.setBounds(31, 175, 231, 38);
+		panel.add(btnNewButton_1);
 		
+		btnNewButton_2 = new JButton("Calculer forfait covoiturage");
+		btnNewButton_2.setFont(new Font("Yu Gothic", Font.BOLD, 13));
+		btnNewButton_2.setBounds(31, 224, 231, 38);
+		panel.add(btnNewButton_2);
 	}
 	public void treasurerMenu()
 	{

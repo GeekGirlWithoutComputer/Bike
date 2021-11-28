@@ -8,7 +8,6 @@ import be.duquesne.DAO.PersonDAO;
 public  class Person 
 {
 	private final AbstractDaoFactory dao = AbstractDaoFactory.getFactory(AbstractDaoFactory.DAO_FACTORY);
-	
 	protected final PersonDAO pDAO = dao.getPersonneDAO();
 	//    attributes
 	protected int numPerson;
